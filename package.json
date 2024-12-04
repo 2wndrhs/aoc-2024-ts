@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Advent of Code 2024 in TypeScript",
   "scripts": {
+    "start": "sh scripts/start.sh",
     "test": "vitest"
   },
   "keywords": [
