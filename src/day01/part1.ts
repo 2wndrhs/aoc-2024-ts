@@ -28,5 +28,3 @@ export function part1(leftList: number[], rightList: number[]): number {
 
   return totalDistance;
 }
-
-console.log(part1(leftList, rightList));
