@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { part1 } from './part1.js';
+import { part1 } from '../part1.js';
+import { part2 } from '../part2.js';
 
 describe('Day 2', () => {
   const data = [
@@ -13,5 +14,9 @@ describe('Day 2', () => {
 
   test('Part 1', () => {
     expect(part1(data)).toBe(2);
+  });
+
+  test('Part 2', () => {
+    expect(part2(data)).toBe(4);
   });
 });
