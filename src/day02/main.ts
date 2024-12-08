@@ -1,4 +1,4 @@
-// Advent of Code - Day 1
+// Advent of Code - Day 2
 
 import { readFile } from 'fs/promises';
 import { part1 } from './part1.js';
