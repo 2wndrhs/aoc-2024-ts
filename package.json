@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Advent of Code 2024 in TypeScript",
   "scripts": {
+    "gen": "sh scripts/gen.sh",
     "start": "sh scripts/start.sh",
     "test": "vitest"
   },
@@ -13,10 +14,14 @@
     "advent-of-code"
   ],
   "author": "2wndrhs@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.16.0",
+    "@types/ejs": "^3.1.5",
     "@types/node": "^22.10.1",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "globals": "^15.13.0",
