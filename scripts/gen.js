@@ -19,7 +19,8 @@ const fetchInput = async (day, session) => {
     const url = `https://adventofcode.com/2024/day/${day}/input`;
     const headers = { cookie: `session=${session}` };
     const response = await fetch(url, { headers });
-    return response.text();
+    const text = await response.text();
+    return text.trim();
 };
 // read the template file
 const readTemplate = (templateFile) => {

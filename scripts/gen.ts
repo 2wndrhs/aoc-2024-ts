@@ -28,7 +28,9 @@ const fetchInput = async (day: number, session: string): Promise<string> => {
   const headers = { cookie: `session=${session}` };
 
   const response = await fetch(url, { headers });
-  return response.text();
+  const text = await response.text();
+
+  return text.trim();
 };
 
 // read the template file
