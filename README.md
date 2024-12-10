@@ -12,7 +12,7 @@ The template was built with
 
 ```shell
 $ git clone https://github.com/2wndrhs/aoc-2024-typescript-template.git
-$ cd aoc-2024-ts
+$ cd aoc-2024-typescript-template
 
 # install dependencies
 $ pnpm install
