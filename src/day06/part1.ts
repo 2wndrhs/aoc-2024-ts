@@ -1,6 +1,6 @@
 // Advent of Code - Day 6 - Part One
 
-interface Position {
+export interface Position {
   x: number;
   y: number;
   direction: Direction;
@@ -13,7 +13,7 @@ enum Direction {
   Left,
 }
 
-const findGuardPosition = (map: string[][]): Position | null => {
+export const findGuardPosition = (map: string[][]): Position | null => {
   for (let rowIndex = 0; map.length; rowIndex++) {
     const row = map[rowIndex];
     const colIndex = row.findIndex((item) => item === '^');
@@ -25,12 +25,12 @@ const findGuardPosition = (map: string[][]): Position | null => {
   return null;
 };
 
-const turnRight = (direction: Direction) => {
+export const turnRight = (direction: Direction) => {
   return (direction + 1) % 4;
 };
 
-const move = (position: Position, direction: Direction) => {
-  switch (direction) {
+export const move = (position: Position) => {
+  switch (position.direction) {
     case Direction.Up:
       return { ...position, y: position.y - 1 };
     case Direction.Down:
@@ -50,7 +50,7 @@ export function part1(input: string[]): number {
   visited.add(`${guardPosition.x},${guardPosition.y}`);
 
   while (true) {
-    const nextMove = move(guardPosition, guardPosition.direction);
+    const nextMove = move(guardPosition);
     const isValidPosition =
       0 <= nextMove.x &&
       nextMove.x < map[0].length &&
