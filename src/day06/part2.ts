@@ -2,7 +2,11 @@
 
 import { findGuardPosition, move, Position, turnRight } from './part1.js';
 
-const hasLoop = (startPosition: Position, map: string[][]) => {
+const hasLoop = (
+  map: string[][],
+  startPosition: Position,
+  obstaclePosition: { x: number; y: number },
+) => {
   const position = { ...startPosition };
   const visited = new Set<string>();
 
@@ -22,7 +26,7 @@ const hasLoop = (startPosition: Position, map: string[][]) => {
 
     if (
       map[nextMove.y][nextMove.x] === '#' ||
-      map[nextMove.y][nextMove.x] === 'O'
+      (nextMove.x === obstaclePosition.x && nextMove.y === obstaclePosition.y)
     ) {
       position.direction = turnRight(position.direction);
       continue;
@@ -82,10 +86,9 @@ export function part2(input: string[]): number {
       continue;
     }
 
-    const newMap = map.map((line) => line.slice());
-    newMap[y][x] = 'O';
+    const obstaclePosition = { x, y };
 
-    if (hasLoop(startPosition, newMap)) {
+    if (hasLoop(map, startPosition, obstaclePosition)) {
       loopCount += 1;
     }
   }
