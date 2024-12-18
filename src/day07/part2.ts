@@ -1,30 +1,10 @@
-// Advent of Code - Day 7 - Part One
+// Advent of Code - Day 7 - Part Two
 
-export const generateCombinations = (
-  operators: string[],
-  length: number,
-): string[][] => {
-  const result: string[][] = [];
+import { generateCombinations } from './part1.js';
 
-  const combine = (current: string[]) => {
-    if (current.length === length) {
-      result.push([...current]);
-      return;
-    }
-
-    for (const operator of operators) {
-      combine([...current, operator]);
-    }
-  };
-
-  combine([]);
-
-  return result;
-};
-
-export function part1(input: string[]): number {
+export function part2(input: string[]): number {
   const data = input.map((equation) => equation.split(/[:\s]+/).map(Number));
-  const operators = ['+', '*'];
+  const operators = ['+', '*', '||'];
 
   const result = data.reduce((acc, cur) => {
     const [testValue, ...numbers] = cur;
@@ -43,12 +23,16 @@ export function part1(input: string[]): number {
           return combinationAcc + number;
         }
 
-        return combinationAcc * number;
+        if (combination[numberIndex - 1] === '*') {
+          return combinationAcc * number;
+        }
+
+        return Number(`${combinationAcc}${number}`);
       }, 0);
 
       if (value === testValue) {
         acc += value;
-        return true; // 반복 종료
+        return true;
       }
 
       return false;

@@ -22,6 +22,6 @@ describe('Day 7', () => {
   });
 
   test('Part 2', () => {
-    expect(part2(data)).toBe(0);
+    expect(part2(data)).toBe(11387);
   });
 });
