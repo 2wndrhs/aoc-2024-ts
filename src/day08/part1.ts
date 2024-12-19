@@ -1,11 +1,11 @@
 // Advent of Code - Day 8 - Part One
 
-type Position = {
+export type Position = {
   row: number;
   col: number;
 };
 
-const generatePositionCombinations = (
+export const generatePositionCombinations = (
   positionList: Position[],
 ): [Position, Position][] => {
   const combinations: [Position, Position][] = [];
@@ -19,7 +19,10 @@ const generatePositionCombinations = (
   return combinations;
 };
 
-const isValidPosition = (position: Position, data: string[][]): boolean => {
+export const isValidPosition = (
+  position: Position,
+  data: string[][],
+): boolean => {
   return (
     0 <= position.row &&
     position.row < data.length &&
